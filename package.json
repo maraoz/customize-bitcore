@@ -1,0 +1,20 @@
+{
+  "name": "customize-bitcore",
+  "description": "Webapp that serves customized bitcore browser bundles",
+  "version": "0.0.1",
+  "author": {
+    "name": "Manuel Araoz",
+    "email": "manu@bitpay.com"
+  },
+  "repository": "git://github.com/maraoz/customize-bitcore.git",
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {},
+  "dependencies": {
+    "bitcore": "git://github.com/maraoz/bitcore.git",
+    "express": "~3.4.8"
+  },
+  "devDependencies": {}
+}
