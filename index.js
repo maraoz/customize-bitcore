@@ -14,12 +14,14 @@ app.get('/download/*', function(req, res) {
     opts = '-s '+list;
   }
   var exec = require('child_process').exec;
-  var child = exec("cd node_modules/bitcore/; node browser/build.js -o "+opts, function(error, stdout, stderr) {
-    console.log(error);
-    if (error) res.write(error.toString());
-    res.write(stdout);
-    res.end();
-  });
+  var child = exec("cd node_modules/bitcore/; node browser/build.js -o "+opts,
+    { maxBuffer: 524288 },
+    function(error, stdout, stderr) {
+      if (error) res.write(error.toString());
+      res.write(stdout);
+      res.end();
+    }
+  );
 });
 
 var server = app.listen(3000, function() {
