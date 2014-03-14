@@ -27,7 +27,6 @@ var modules = [
   'Buffers.monkey',
   'Connection',
   'Deserialize',
-  'Gruntfile',
   'Number.monkey',
   'Opcode',
   'Peer',
