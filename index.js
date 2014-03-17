@@ -23,7 +23,7 @@ app.get('/download/*', function(req, res) {
   }
   var match = list.match(/^([a-zA-Z\/\.]+)(,[a-zA-Z\/\.]+)*$/);
   if (!match) {
-    res.write('Bad URL format');
+    res.status(400);
     res.end();
     return;
   }
@@ -32,7 +32,9 @@ app.get('/download/*', function(req, res) {
       maxBuffer: 524288
     },
     function(error, stdout, stderr) {
-      if (error) res.write(error.toString());
+      if (error) {
+        res.status(400);
+      }
       res.write(stdout);
       res.end();
     }
