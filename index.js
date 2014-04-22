@@ -4,6 +4,7 @@ var express = require('express'),
   fs = require('fs');
 
 var app = express();
+var builder = require('./node_modules/bitcore/browser/build');
 
 // Add headers
 app.use(function(req, res, next) {
@@ -39,6 +40,11 @@ app.get('/download/*', function(req, res) {
       res.end();
     }
   );
+});
+
+app.get('/modules', function(req, res) {
+  res.write(builder.moduleNames.toString());
+  res.end();
 });
 
 var server = app.listen(3010, function() {
